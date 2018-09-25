@@ -35,7 +35,7 @@ namespace task1
             string text = r.ReadToEnd();
             r.Close();
             f.Close();
-            int n1 = FindNumber(text);
+            long n1 = FindNumber(text);
             int count = 0;
             int j = 0;
             while(text[j]!=' ')
@@ -44,10 +44,11 @@ namespace task1
                 j++;
             }
             string text1=text.Remove(0,count);
-            int n2 = Convert.ToInt32(text1.TrimStart(' '));
+            long n2 = Convert.ToInt32(text1.TrimStart(' '));
             FileStream f1 = new FileStream("output.txt", FileMode.Create);
             StreamWriter w = new StreamWriter(f1);
-            w.Write(Convert.ToString(n1 + n2*n2));
+            long resukl = (n1 + n2 * n2);
+            w.Write(Convert.ToString(resukl));
             w.Close();
             f1.Close();
         }
