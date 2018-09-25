@@ -30,7 +30,7 @@ namespace task1
         }
         static void Main(string[] args)
         {
-            FileStream f = new FileStream("c://input.txt",FileMode.Open);
+            FileStream f = new FileStream("input.txt",FileMode.OpenOrCreate);
             StreamReader r = new StreamReader(f);
             string text = r.ReadToEnd();
             r.Close();
@@ -38,7 +38,7 @@ namespace task1
             int n1 = FindNumber(text);
             string text1=text.Replace(Convert.ToString(n1), " ");
             int n2 = Convert.ToInt32(text1.TrimStart(' '));
-            FileStream f1 = new FileStream("c://output.txt", FileMode.Create);
+            FileStream f1 = new FileStream("output.txt", FileMode.Create);
             StreamWriter w = new StreamWriter(f1);
             w.Write(Convert.ToString(n1 + n2));
             w.Close();
