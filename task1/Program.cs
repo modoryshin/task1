@@ -36,7 +36,14 @@ namespace task1
             r.Close();
             f.Close();
             int n1 = FindNumber(text);
-            string text1=text.Replace(Convert.ToString(n1), " ");
+            int count = 0;
+            int j = 0;
+            while(text[j]!=' ')
+            {
+                count++;
+                j++;
+            }
+            string text1=text.Remove(0,count);
             int n2 = Convert.ToInt32(text1.TrimStart(' '));
             FileStream f1 = new FileStream("output.txt", FileMode.Create);
             StreamWriter w = new StreamWriter(f1);
